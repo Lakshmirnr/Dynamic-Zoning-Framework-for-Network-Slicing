@@ -1,0 +1,22 @@
+{
+  "sst": 1,
+  "sd": 1,
+  "current_zone": "zone3",
+  "zones": [
+    {
+      "zone1": {
+        "firewall": "strict"
+      }
+    },
+    {
+      "zone2": {
+        "firewall": "medium"
+      }
+    },
+    {
+      "zone3": {
+        "firewall": "none"
+      }
+    }
+  ]
+}
