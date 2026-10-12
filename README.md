@@ -44,6 +44,7 @@
 - MongoDB reachable at the configured URI
 - `pymongo`
 - Linux `iptables` only if applying firewall rules for real
+- Open5gs and UERANSIM
 
 Install dependencies:
 
@@ -64,8 +65,7 @@ set +a
 
 ## 1. Configure MongoDB
 
-The default database and collection are `open5gs.open5gs_slice_zone_map`. Seed a demo document:
-
+The default database and collection are `open5gs.open5gs_slice_zone_map`. 
 ```bash
 python scripts/seed_mongodb.py
 ```
@@ -87,7 +87,7 @@ Example document:
 }
 ```
 
-In this demo, `zone3` is the permissive baseline, `zone2` is the intermediate policy, and `zone1` is the restrictive policy. These names are examples; align them with the zone semantics in your paper.
+In this demo, `zone3` is the permissive baseline, `zone2` is the intermediate policy, and `zone1` is the restrictive policy. 
 
 ## 2. Start the zone reassignment daemon
 
@@ -135,7 +135,7 @@ Set `MONITOR_MODE=smf_log` and `SMF_LOG_PATH` to a log file you own and have per
 - `medium`: permits TCP/UDP DNS traffic (port 53) from the configured slice subnet and drops other forwarded traffic from that subnet.
 - `strict`: drops forwarded traffic from the configured slice subnet.
 
-These are simple demonstration policies, not complete production policies. They may interrupt service. Keep `DRY_RUN=1` for initial testing.
+They may interrupt service. Keep `DRY_RUN=1` for initial testing.
 
 ## Reproducibility data
 
@@ -152,4 +152,3 @@ Record at least:
 - signaling rate and legitimate session disruption;
 - repeated trials and false-positive/false-negative counts.
 
-Do not use the illustrative CSV values as paper results.
